@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dr. Amine Keddouri | English Teacher</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d; /* Very dark background */
+            color: #e5decf; /* Light text color */
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #003366 0%, #0d0d0d 90%);
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin: 0 0 0.3rem 0;
+            color: #e5decf;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cfc9b8;
+            margin: 0 0 1.8rem 0;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            background-color: #1e2a47;
+            color: #e5decf;
+            border: none;
+            border-radius: 25px;
+            padding: 0.85rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(30, 42, 71, 0.4);
+            transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+            font-weight: 1000;
+            user-select: none;
+        }
+
+        .nav-btn:hover,
+        .nav-btn:focus {
+            background-color: #2a3a6d;
+            box-shadow: 0 6px 12px rgba(42, 58, 109, 0.7);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #e5decf;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Profile Image - UPDATED SIZE */
+        img.profile-img {
+            width: 160px; /* <-- Reduced size */
+            height: 160px; /* <-- Reduced size */
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #2e2e2e;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Highlights Section */
+        .highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .highlight-card {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 1rem;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: scale(1.02);
+        }
+
+        .highlight-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .highlight-caption {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        /* Work Section Buttons */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap */
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Individual button wrapper to contain button and label */
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none; /* Remove underline from the wrapper link if it were a link */
+            color: inherit; /* Inherit text color */
+             cursor: pointer;
+        }
+
+        .rounded-btn {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: white; /* Ensure text color is white */
+            font-weight: bold;
+            display: flex; /* Make it a flex container */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            text-align: center; /* Ensure text is centered if it wraps */
+            padding: 10px; /* Add some padding to prevent text from touching edges */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+            transition: transform 0.3s, background-color 0.3s;
+            overflow: hidden; /* Essential for circular shapes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+        }
+
+        .rounded-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+        }
+
+        /* Updated colors for the buttons */
+        .btn-lessons {
+            background-color: #3b3b3b; /* A darker, subtle grey */
+        }
+
+        .btn-presentations {
+            background-color: #1a4f8a; /* A deeper, more prominent blue */
+        }
+
+        .btn-cv {
+            background-color: #5d3f82; /* A richer, darker purple */
+        }
+
+        /* Contact Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea {
+            padding: 0.9rem 1rem;
+            border-radius: 12px;
+            border: none;
+            background-color: #1a1a1a;
+            color: #e5decf;
+            font-size: 1rem;
+            resize: vertical;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            background-color: #2a3a6d;
+            outline: none;
+            box-shadow: 0 0 8px #4a6df7;
+        }
+
+        button[type="submit"] {
+            background-color: #003366;
+            color: #e5decf;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.6);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+        }
+
+        button[type="submit"]:hover,
+        button[type="submit"]:focus {
+            background-color: #002147;
+            box-shadow: 0 6px 14px rgba(0, 33, 71, 0.8);
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #1a1a1a;
+            font-size: 0.9rem;
+            color: #777;
+            user-select: none;
+        }
+
+        /* Language Switcher */
+        #language-switcher {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        #language-switcher span {
+            color: #a8c1f0;
+            cursor: pointer;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            user-select: none;
+        }
+
+        #language-switcher span:hover {
+            background-color: #2a3a6d;
+            color: #e5decf;
+        }
+
+        #language-switcher span.active {
+            background-color: #003366;
+            color: #e5decf;
+            pointer-events: none; /* Disable click on active language */
+        }
+        
+        /* Placeholder styling */
+        .placeholder-text {
+            font-style: italic;
+            color: #888;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .rounded-btn {
+                width: 140px;
+                height: 140px;
+            }
+
+            #language-switcher {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.9rem;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                max-width: 90%;
+            }
+
+            .nav-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div id="language-switcher">
+            <span data-lang="en" class="active">ENG</span>
+            <span data-lang="fr">FR</span>
+            <span data-lang="ar">AR</span>
+        </div>
+
+        <div class="hero-text">
+            <h1 data-key="heroTitle">Dr. Amine Keddouri</h1>
+            <p data-key="heroSubtitle">Middle school government teacher</p>
+            <div class="hero-buttons">
+                <button class="nav-btn" onclick="scrollToSection('about')" data-key="aboutButton">About Me</button>
+                <button class="nav-btn" onclick="scrollToSection('philosophy')" data-key="philosophyButton">Philosophy</button>
+                <button class="nav-btn" onclick="scrollToSection('contact')" data-key="contactButton">Contact</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section fade-in">
+        <h2 data-key="aboutTitle">About Me</h2>
+        <img src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Portrait of Dr. Amine Keddouri" class="profile-img" />
+        <p data-key="aboutText">I’m a passionate middle school English teacher with over 10 years of experience helping students find their voice and master the written word.</p>
+    </section>
+
+    <section id="philosophy" class="section fade-in">
+        <h2 data-key="philosophyTitle">Teaching Philosophy</h2>
+        <p data-key="philosophyText">I believe that learning and fun should go hand in hand. When students are engaged and feel comfortable in the classroom, they are more motivated to participate and explore new ideas. This positive environment allows each student to shine and reach their full potential, making education both enjoyable and effective.</p>
+    </section>
+
+    <section id="highlights" class="section fade-in">
+        <h2 data-key="highlightsTitle">Professional Highlights</h2>
+        <div class="highlights">
+            <div class="highlight-card">
+                <img src="https://images.pexels.com/photos/1181622/pexels-photo-1181622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dr. Keddouri attending a conference" />
+                <p class="highlight-caption" data-key="highlight1">Attending a national education conference, engaged in collaborative discussion with fellow educators.</p>
+            </div>
+            <div class="highlight-card">
+                <img src="https://images.pexels.com/photos/6326376/pexels-photo-6326376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dr. Keddouri at Calliope seminar holding a gift bag" />
+                <p class="highlight-caption" data-key="highlight2">Receiving a special gift bag during the Calliope seminar on cross-cultural teaching methodologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <h2 data-key="workTitle">Work</h2>
+        <p data-key="workSubtitle">Explore my digital teaching resources:</p>
+        <div class="button-container">
+            <div class="button-wrapper" onclick="scrollToSection('lessons')">
+                <div class="rounded-btn btn-lessons">
+                    <span data-key="lessonsButton">Lesson Plans</span>
+                </div>
+            </div>
+            <div class="button-wrapper" onclick="scrollToSection('presentations')">
+                <div class="rounded-btn btn-presentations">
+                    <span data-key="presentationsButton">Presentations</span>
+                </div>
+            </div>
+            <div class="button-wrapper" onclick="scrollToSection('cv')">
+                <div class="rounded-btn btn-cv">
+                    <span data-key="cvButton">View CV</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lessons" class="section fade-in">
+        <h2 data-key="lessonsTitle">Lesson Plans</h2>
+        <p class="placeholder-text" data-key="lessonsText">
+            A selection of my comprehensive lesson plans will be available for download here soon. These resources are designed to be engaging, interactive, and aligned with modern pedagogical standards.
+        </p>
+    </section>
+
+    <section id="presentations" class="section fade-in">
+        <h2 data-key="presentationsTitle">Presentations</h2>
+        <p class="placeholder-text" data-key="presentationsText">
+            Explore presentations from various workshops and conferences. Topics include digital literacy, cross-cultural communication, and innovative classroom technologies. Materials will be linked here shortly.
+        </p>
+    </section>
+
+    <section id="cv" class="section fade-in">
+        <h2 data-key="cvTitle">Curriculum Vitae (CV)</h2>
+        <p class="placeholder-text" data-key="cvText">
+            My detailed CV, outlining my professional experience, qualifications, and publications, will be available for viewing or download from this section. Please check back soon.
+        </p>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <h2 data-key="contactTitle">Contact</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required data-key="contactNamePlaceholder" />
+            <input type="email" placeholder="Your Email" required data-key="contactEmailPlaceholder" />
+            <textarea placeholder="Your Message" rows="5" required data-key="contactMessagePlaceholder"></textarea>
+            <button type="submit" data-key="contactSubmitButton">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p data-key="footerText">&copy; 2025 Dr. Amine Keddouri. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                heroTitle: "Dr. Amine Keddouri",
+                heroSubtitle: "Middle school government teacher",
+                aboutButton: "About Me",
+                philosophyButton: "Philosophy",
+                contactButton: "Contact",
+                aboutTitle: "About Me",
+                aboutText: "I’m a passionate middle school English teacher with over 10 years of experience helping students find their voice and master the written word.",
+                philosophyTitle: "Teaching Philosophy",
+                philosophyText: "I believe that learning and fun should go hand in hand. When students are engaged and feel comfortable in the classroom, they are more motivated to participate and explore new ideas. This positive environment allows each student to shine and reach their full potential, making education both enjoyable and effective.",
+                highlightsTitle: "Professional Highlights",
+                highlight1: "Attending a national education conference, engaged in collaborative discussion with fellow educators.",
+                highlight2: "Receiving a special gift bag during the Calliope seminar on cross-cultural teaching methodologies.",
+                workTitle: "Work",
+                workSubtitle: "Explore my digital teaching resources:",
+                lessonsButton: "Lesson Plans",
+                presentationsButton: "Presentations",
+                cvButton: "View CV",
+                lessonsTitle: "Lesson Plans", // New key
+                lessonsText: "A selection of my comprehensive lesson plans will be available for download here soon. These resources are designed to be engaging, interactive, and aligned with modern pedagogical standards.", // New key
+                presentationsTitle: "Presentations", // New key
+                presentationsText: "Explore presentations from various workshops and conferences. Topics include digital literacy, cross-cultural communication, and innovative classroom technologies. Materials will be linked here shortly.", // New key
+                cvTitle: "Curriculum Vitae (CV)", // New key
+                cvText: "My detailed CV, outlining my professional experience, qualifications, and publications, will be available for viewing or download from this section. Please check back soon.", // New key
+                contactTitle: "Contact",
+                contactNamePlaceholder: "Your Name",
+                contactEmailPlaceholder: "Your Email",
+                contactMessagePlaceholder: "Your Message",
+                contactSubmitButton: "Send",
+                footerText: "&copy; 2025 Dr. Amine Keddouri. All rights reserved."
+            },
+            fr: {
+                heroTitle: "Dr. Amine Keddouri",
+                heroSubtitle: "Professeur de langue anglaise au collège en éducation civique",
+                aboutButton: "À Propos",
+                philosophyButton: "Philosophie",
+                contactButton: "Contact",
+                aboutTitle: "À Propos de Moi",
+                aboutText: "Je suis un professeur d'anglais passionné au collège avec plus de 10 ans d'expérience, aidant les élèves à trouver leur voix et à maîtriser l'écrit.",
+                philosophyTitle: "Philosophie d'Enseignement",
+                philosophyText: "Je crois que l'apprentissage et le plaisir doivent aller de pair. Lorsque les élèves sont engagés et se sentent à l'aise en classe, ils sont plus motivés à participer et à explorer de nouvelles idées. Cet environnement positif permet à chaque élève de s'épanouir et d'atteindre son plein potentiel, rendant l'éducation à la fois agréable et efficace.",
+                highlightsTitle: "Faits Saillants Professionnels",
+                highlight1: "Participation à une conférence nationale sur l'éducation, engagé dans une discussion collaborative avec d'autres éducateurs.",
+                highlight2: "Réception d'un sac cadeau spécial lors du séminaire Calliope sur les méthodologies d'enseignement interculturel.",
+                workTitle: "Travaux",
+                workSubtitle: "Explorez mes ressources pédagogiques numériques :",
+                lessonsButton: "Plans de Leçons",
+                presentationsButton: "Présentations",
+                cvButton: "Voir le CV",
+                lessonsTitle: "Plans de Leçons", // New key
+                lessonsText: "Une sélection de mes plans de cours complets sera bientôt disponible en téléchargement ici. Ces ressources sont conçues pour être engageantes, interactives et conformes aux normes pédagogiques modernes.", // New key
+                presentationsTitle: "Présentations", // New key
+                presentationsText: "Découvrez les présentations de divers ateliers et conférences. Les sujets incluent la littératie numérique, la communication interculturelle et les technologies de classe innovantes. Les documents seront bientôt disponibles ici.", // New key
+                cvTitle: "Curriculum Vitae (CV)", // New key
+                cvText: "Mon CV détaillé, présentant mon expérience professionnelle, mes qualifications et mes publications, sera disponible pour consultation ou téléchargement dans cette section. Veuillez revenir bientôt.", // New key
+                contactTitle: "Contact",
+                contactNamePlaceholder: "Votre Nom",
+                contactEmailPlaceholder: "Votre Email",
+                contactMessagePlaceholder: "Votre Message",
+                contactSubmitButton: "Envoyer",
+                footerText: "&copy; 2025 Dr. Amine Keddouri. Tous droits réservés."
+            },
+            ar: {
+                heroTitle: "د. أمين قدوري",
+                heroSubtitle: "أستاذ اللغة الإنجليزية للسلك الإعدادي",
+                aboutButton: "تقديم",
+                philosophyButton: "الفلسفة",
+                contactButton: "اتصل بي",
+                aboutTitle: "تقديم",
+                aboutText: "أنا أستاذ لغة إنجليزية متحمس في المرحلة الإعدادية ولدي أكثر من 3 سنوات من الخبرة في مساعدة الطلاب على إيجاد صوتهم وإتقان الكلمة المكتوبة.",
+                philosophyTitle: "فلسفة التدريس",
+                philosophyText: ".أعتقد أن التعلم والمرح يجب أن يسيرا جنباً إلى جنب. عندما يكون الطلاب منخرطين ويشعرون بالراحة في الفصول الدراسية، يكونون أكثر حماسًا للمشاركة واستكشاف أفكار جديدة. هذه البيئة الإيجابية تسمح لكل طالب بالتألق والوصول إلى إمكاناته الكاملة، مما يجعل التعليم ممتعًا وفعالًا",
+                highlightsTitle: "أبرز الإنجازات المهنية",
+                highlight1: "حضور مؤتمر تعليمي وطني، والمشاركة في نقاش تعاوني مع زملائي المعلمين.",
+                highlight2: ".استلام حقيبة هدايا خاصة خلال ندوة كاليوبي حول منهجيات التدريس بين الثقافات",
+                workTitle: "أعمالي",
+                workSubtitle: ":استكشف مصادر التدريس الرقمية الخاصة بي",
+                lessonsButton: "خطط الدروس",
+                presentationsButton: "العروض التقديمية",
+                cvButton: "عرض السيرة الذاتية",
+                lessonsTitle: "خطط الدروس", // New key
+                lessonsText: "ستكون مجموعة من خطط الدروس الشاملة الخاصة بي متاحة للتنزيل هنا قريبًا. تم تصميم هذه الموارد لتكون جذابة وتفاعلية ومتوافقة مع المعايير التربوية الحديثة.", // New key
+                presentationsTitle: "العروض التقديمية", // New key
+                presentationsText: "استكشف العروض التقديمية من ورش العمل والمؤتمرات المختلفة. تشمل الموضوعات محو الأمية الرقمية والتواصل بين الثقافات وتقنيات الفصول الدراسية المبتكرة. سيتم ربط المواد هنا قريبًا.", // New key
+                cvTitle: "السيرة الذاتية", // New key
+                cvText: "ستكون سيرتي الذاتية المفصلة، التي تحدد خبرتي المهنية ومؤهلاتي ومنشوراتي، متاحة للعرض أو التنزيل من هذا القسم. يرجى التحقق مرة أخرى قريبًا.", // New key
+                contactTitle: "تواصل",
+                contactNamePlaceholder: "اسمك",
+                contactEmailPlaceholder: "بريدك الإلكتروني",
+                contactMessagePlaceholder: "رسالتك",
+                contactSubmitButton: "إرسال",
+                footerText: "&copy; 2025 د. أمين قدوري. جميع الحقوق محفوظة."
+            }
+        };
+
+        // Function to set the language
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            for (const key in translations[lang]) {
+                const element = document.querySelector(`[data-key="${key}"]`);
+                if (element) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            }
+            document.querySelectorAll('#language-switcher span').forEach(span => {
+                span.classList.remove('active');
+                if (span.dataset.lang === lang) {
+                    span.classList.add('active');
+                }
+            });
+            // Adjust text direction for Arabic
+            if (lang === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.querySelectorAll('.section').forEach(el => el.style.textAlign = 'right');
+                // Adjust specific elements for RTL if needed, e.g., button-container
+                document.querySelector('.hero-buttons').style.flexDirection = 'row-reverse';
+                document.querySelector('.button-container').style.flexDirection = 'row-reverse';
+            } else {
+                document.body.style.direction = 'ltr';
+                document.querySelectorAll('.section').forEach(el => el.style.textAlign = 'center');
+                // Reset specific elements for LTR
+                document.querySelector('.hero-buttons').style.flexDirection = 'row';
+                document.querySelector('.button-container').style.flexDirection = 'row';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // GSAP animations for hero section
+            gsap.from(".hero h1", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+            gsap.from(".hero p", { duration: 1.2, y: -30, opacity: 0, delay: 0.3, ease: "power2.out" });
+            gsap.from(".hero-buttons", { duration: 1.5, y: 20, opacity: 0, delay: 0.6, ease: "power2.out" });
+
+            // Intersection Observer for section fade-in animation
+            const sections = document.querySelectorAll(".fade-in");
+            const options = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gsap.to(entry.target, { duration: 1, y: 0, opacity: 1, ease: "power2.out" });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                gsap.set(section, { y: 50, opacity: 0 }); // Initial state for animation
+                observer.observe(section);
+            });
+
+            // Event listeners for language switcher
+            document.getElementById('language-switcher').addEventListener('click', (event) => {
+                if (event.target.tagName === 'SPAN' && !event.target.classList.contains('active')) {
+                    setLanguage(event.target.dataset.lang);
+                }
+            });
+
+            // Set default language to English on load
+            setLanguage('en');
+        });
+
+        // Function to scroll to sections
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

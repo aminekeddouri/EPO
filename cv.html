@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amine Keddouri - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Dark Mode Variables */
+        :root {
+            --bg-dark: #121212;
+            --bg-light-dark: #1e1e1e;
+            --text-light: #f8f8f2;
+            --text-accent: #64b5f6; /* A pleasing light blue */
+            --section-bg: #282828;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: var(--bg-light-dark);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden; /* Ensures shadows and transforms stay within bounds */
+        }
+
+        /* Subtle lift on container hover */
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1, h2, h3 {
+            color: var(--text-accent);
+            margin-bottom: 0.3em;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+        }
+
+        p {
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 1em;
+        }
+
+        .section {
+            background-color: var(--section-bg);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            opacity: 0; /* For scroll animation */
+            transform: translateY(20px); /* For scroll animation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--text-accent);
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.7em;
+            position: relative;
+            padding-left: 1.2em;
+        }
+
+        ul li::before {
+            content: "\2022"; /* Bullet point */
+            color: var(--text-accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info p {
+            margin: 0.5em 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info p strong {
+            color: var(--text-accent);
+            margin-right: 0.5em;
+            width: 80px; /* Align content nicely */
+            display: inline-block;
+        }
+
+        .contact-info a {
+            color: var(--text-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #8ab4f8; /* Lighter blue on hover */
+        }
+
+        .education-item,
+        .experience-item,
+        .development-item {
+            margin-bottom: 1.5em;
+            padding-left: 1.2em;
+            border-left: 2px solid var(--text-accent);
+            position: relative; /* For the pseudo-element glow */
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .education-item:hover,
+        .experience-item:hover,
+        .development-item:hover {
+            background-color: #333; /* Slightly lighter dark on hover */
+            border-color: #8ab4f8; /* Brighter border on hover */
+            transform: translateX(5px); /* Slide effect */
+        }
+
+        .education-item h3,
+        .experience-item h3,
+        .development-item h3 {
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        .education-item p:first-of-type,
+        .experience-item p:first-of-type {
+            color: var(--text-subtle); /* More subtle text for dates */
+            font-style: italic;
+            margin-bottom: 0.3em;
+        }
+
+        /* Small visual enhancements */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--text-accent), #4fc3f7); /* Gradient bar at the top */
+            z-index: -1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section-title {
+                font-size: 1.3em;
+            }
+            .contact-info p strong {
+                width: auto;
+                margin-right: 0.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AMINE KEDDOURI</h1>
+        <p style="text-align: center; color: var(--text-accent); margin-top: -0.5em;">Aspiring English Teacher</p>
+
+        <section class="section">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> +212 6 31 76 26 14</p>
+                <p><strong>Email:</strong> <a href="mailto:Aminekeddouri16@gmail.com">Aminekeddouri16@gmail.com</a></p>
+                <p><strong>Website:</strong> <a href="http://www.aminekeddouri.space" target="_blank">www.aminekeddouri.space</a></p>
+                <p><strong>Address:</strong> Pam, Oulmes, Khemisset 15 102, Morocco</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">LANGUAGES</h2>
+            <ul>
+                <li>Arabic - Native</li>
+                <li>English - Proficient</li>
+                <li>French - Proficient</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="education-item">
+                <h3>CRMEF Rabat</h3>
+                <p>2024-2025</p>
+                <p>Teacher of Middle School English Language (Trainee)</p>
+            </div>
+            <div class="education-item">
+                <h3>English Bachelor Degree</h3>
+                <p>2022-2024</p>
+                <p>Ibn Tofail University - Kenitra / Linguistics English Studies</p>
+            </div>
+            <div class="education-item">
+                <h3>Baccalauréat Littérature (Humanities)</h3>
+                <p>2021-2022</p>
+                <p>Oulmes High School</p>
+            </div>
+            <div class="education-item">
+                <h3>Baccalauréat Science (SVT - Life and Earth Sciences)</h3>
+                <p>2020-2021</p>
+                <p>Oulmes High School</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">TEACHING EXPERIENCE</h2>
+            <div class="experience-item">
+                <h3>Teacher Trainee at Birnazaran Middle School</h3>
+                <p>December 2024 - June 2025</p>
+                <p>Under the supervision of Mrs. Loubna Zohra Aissaoui.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Teacher of French at Manbaa Private School</h3>
+                <p>August 2024 - October 2024</p>
+                <p>Taught French to 4th and 2nd grade primary school students.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">PROFESSIONAL DEVELOPMENT</h2>
+            <div class="development-item">
+                <h3>Cambridge Day Seminar</h3>
+                <p>March 8, 2025</p>
+                <p>Focused on engaging students and integrating skills.</p>
+            </div>
+            <div class="development-item">
+                <h3>Calliope X Macmillan Education Seminar</h3>
+                <p>April 12, 2025</p>
+                <p>Attended a professional development seminar on teaching methodologies.</p>
+            </div>
+            <div class="development-item">
+                <h3>Young Teachers' Festival "Learners' Curiosity"</h3>
+                <p>Date not specified</p>
+                <p>Participated in a festival centered on fostering learner engagement and curiosity.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll-triggered animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+
+            const observerOptions = {
+                root: null, /* viewport */
+                rootMargin: '0px',
+                threshold: 0.1 /* Trigger when 10% of the section is visible */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target); /* Stop observing once animated */
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

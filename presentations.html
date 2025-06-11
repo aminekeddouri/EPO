@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Presentations</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a; /* Very dark background */
+            color: #e0e0e0; /* Light grey text for contrast */
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            min-height: 100vh; /* Full viewport height */
+        }
+
+        /* Main Heading */
+        h1 {
+            color: #00bcd4; /* A vibrant blue for the title */
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.5); /* Subtle glow */
+        }
+
+        /* Video Container Styling */
+        .video-container {
+            display: flex; /* Use flexbox for vertical stacking */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center cards horizontally in the stack */
+            width: 100%; /* Take full width to allow cards to center */
+            max-width: 1100px; /* Adjusted max-width for the overall stack to accommodate larger videos */
+            margin-bottom: 30px; /* Space between each video card when stacked */
+        }
+
+        /* Individual Video Card Styling */
+        .video-card {
+            background-color: #2c2c2c; /* Slightly lighter dark background for cards */
+            border-radius: 12px;
+            overflow: hidden; /* Ensures video corners match card corners */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Deeper shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%; /* Card takes full width of its container (video-container) */
+            max-width: 1050px; /* 350px * 3 = 1050px - Main control for card's width */
+            margin-bottom: 30px; /* Spacing between cards when they are direct siblings */
+        }
+
+        /* Hover effect still active, but play/pause handled by Intersection Observer */
+        .video-card:hover {
+            transform: translateY(-8px); /* Lift effect on hover */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+        }
+
+        video {
+            width: 100%; /* Video fills its card's width */
+            height: 540px; /* 180px * 3 = 540px - Control for video's height */
+            object-fit: cover; /* Ensures video covers the area without distortion */
+            display: block; /* Removes extra space below video */
+            /* Ensure muted for autoplay to work in most browsers */
+            /* 'muted' attribute is also on the video tag directly in HTML */
+        }
+
+        /* Video Title below the player */
+        .video-title {
+            padding: 15px;
+            font-size: 1.1em; /* Slightly smaller font for title */
+            color: #00bcd4; /* Same vibrant blue for titles */
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Presentations</h1>
+
+    <div class="video-container">
+        <div class="video-card">
+            <video muted loop>
+                <source src="videos/evaluation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">Evaluation module</div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-card">
+            <video muted loop>
+                <source src="videos/ict.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">ICT</div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-card">
+            <video muted loop>
+                <source src="videos/pollution.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">Pollution</div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-card">
+            <video muted loop>
+                <source src="videos/PRESEN.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">General Presentation</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoCards = document.querySelectorAll('.video-card');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const video = entry.target.querySelector('video');
+                    if (video) { // Ensure video element exists
+                        if (entry.isIntersecting) {
+                            // If the video card is in the viewport, play the video
+                            video.play().catch(error => {
+                                // Autoplay might be blocked by browser policy, even if muted.
+                                // You might see a "play() failed because the user didn't interact" error.
+                                // For debugging: console.log("Autoplay failed:", error);
+                            });
+                        } else {
+                            // If the video card is out of the viewport, pause and reset
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.75 // Trigger when 75% of the video card is visible
+            });
+
+            // Observe each video card
+            videoCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
